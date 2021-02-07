@@ -78,12 +78,10 @@ RUN pip3 install --no-cache-dir \
     'nwdiag[pdf]' \
     seqdiag
 
-WORKDIR /documents
-VOLUME /documents
+RUN mkdir /home/work && chgrp 1001 /home/work && chown 1001:1001 /home/work
 
-ENV HOME=/documents
+ENV HOME=/home/work
 
 USER 1001
 
 CMD ["/bin/bash"]
-
